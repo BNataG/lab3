@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Вычисление площади прямоугольника</title>
+</head>
+
+<style>
+  body {
+    background: #dccca1;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+  }
+
+  .calculator-container {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+  }
+
+  h1 {
+      color: rgb(23, 48, 147);
+    }
+    .slideshow-controls button {
+      font-size: 20px; /* Увеличиваем размер шрифта кнопок */
+      background-color: #333; /* Изменяем цвет фона кнопок */
+      color: #fff; /* Изменяем цвет текста кнопок */
+      border: none;
+      padding: 10px 20px; /* Увеличиваем отступы внутри кнопок */
+      margin: 10px; /* Увеличиваем внешние отступы вокруг кнопок */
+      cursor: pointer;
+      border-radius: 5px; /* Добавляем скругление углов */
+    }
+</style>
+
+<body>
+  <div class="calculator-container">
+    <h1>Вычисление площади прямоугольника</h1>
+    <p>Введите длину и ширину прямоугольника и нажмите кнопку "Вычислить".</p>
+
+    <input type="text" id="length" placeholder="Длина прямоугольника">
+    <input type="text" id="width" placeholder="Ширина прямоугольника">
+    <button id="calculate">Вычислить</button>
+    <p id="result"></p>
+  </div>
+
+  <div class="slideshow-controls button">
+    <a href="index.html">
+      <button>Вернуться на основную страницу</button>
+    </a>
+  </div>
+
+  <script>
+    function calculateRectangleArea() {
+      const length = parseFloat(document.getElementById('length').value);
+      const width = parseFloat(document.getElementById('width').value);
+      const resultElement = document.getElementById('result');
+
+      if (isNaN(length) || isNaN(width)) {
+        resultElement.textContent = 'Пожалуйста, введите корректные значения.';
+      } else {
+        const area = length * width;
+        resultElement.textContent = `Площадь прямоугольника: ${area} квадратных единиц`;
+      }
+    }
+
+    const calculateButton = document.getElementById('calculate');
+    calculateButton.addEventListener('click', calculateRectangleArea);
+  </script>
+</body>
+</html>
